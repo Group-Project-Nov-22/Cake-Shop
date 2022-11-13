@@ -8,11 +8,10 @@
 <html>
 <head>
 <meta charset="ISO-8859-1">
-<title>Insert title here</title>
+<title>Login and Registration</title>
 </head>
 <body>
-	<h1>Hello World</h1>
-	<h1>Hello Hello</h1>
+	<h1>Takes The Cake</h1>
 	<div>
 		<h2>Register</h2>
 		<form:form action="/register" modelAttribute="newUser">
