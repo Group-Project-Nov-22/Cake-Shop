@@ -12,7 +12,6 @@
 </head>
 <body>
 	<h1>Takes The Cake</h1>
-	
 	<div>
 		<h2>Register</h2>
 		<form:form action="/register" modelAttribute="newUser">
