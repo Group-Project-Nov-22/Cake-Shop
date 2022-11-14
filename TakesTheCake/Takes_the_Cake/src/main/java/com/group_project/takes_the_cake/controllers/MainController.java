@@ -11,6 +11,7 @@ import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PostMapping;
 
+import com.group_project.takes_the_cake.services.CakeService;
 import com.group_project.takes_the_cake.services.UserService;
 import com.group_project.takes_the_cake.models.LoginUser;
 import com.group_project.takes_the_cake.models.User;
@@ -21,6 +22,8 @@ public class MainController {
 	@Autowired
 	private UserService users;
 	
+	@Autowired
+	private CakeService cakes;
 	
 	@GetMapping("/")
 	public String index(Model model) {
@@ -63,6 +66,9 @@ public class MainController {
 		
 		model.addAttribute("user", users.findById((Long)session.getAttribute("userId")));
 		
+		model.addAttribute("cakes", cakes.all());
 		return "home.jsp";
 	}
+	
+	
 }

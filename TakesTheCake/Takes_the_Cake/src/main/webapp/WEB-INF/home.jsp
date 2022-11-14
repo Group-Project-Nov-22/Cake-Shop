@@ -27,11 +27,21 @@
 			<th></th>
 			
 		</tr>
+		<c:forEach var="cake" items="${cakes}">
+			<tr>
+				<td>
+					<p><c:out value="${cake.name}"/></p>
+				</td>
+				<td>
+					<p><c:out value="${cake.price}"/></p>
+				</td>
+			</tr>
+		</c:forEach>
 		
 		
 	</table>
 	
-	<a href=""></a>
+	
 </div>
 </body>
 </html>

@@ -7,7 +7,8 @@ import org.springframework.stereotype.Repository;
 
 import com.group_project.takes_the_cake.models.Cake;
 
-public interface CakeRepository extends CrudRepository<Cake, Long> {
-    List<Cake> findAll();
-    
+@Repository
+public interface CakeRepository extends CrudRepository<Cake, Long>{
+	
+	List<Cake> findAll();
 }

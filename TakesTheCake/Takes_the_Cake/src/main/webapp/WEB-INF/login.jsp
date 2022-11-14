@@ -57,7 +57,7 @@
 			<p>
 				<form:errors path="password"/>
 				<form:label for="password" path="password">Password:</form:label>
-				<form:input type="text" path="password"/>
+				<form:input type="password" path="password"/>
 			</p>
 			
 			<p>
