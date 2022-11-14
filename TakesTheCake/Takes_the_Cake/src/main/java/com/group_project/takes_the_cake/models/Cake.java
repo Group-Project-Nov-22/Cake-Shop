@@ -20,7 +20,7 @@ import javax.validation.constraints.Size;
 import org.springframework.format.annotation.DateTimeFormat;
 
 @Entity
-@Table(name="cakes")
+@Table(name="cake")
 public class Cake {
 	
 	@Id @GeneratedValue(strategy = GenerationType.IDENTITY)
@@ -34,8 +34,8 @@ public class Cake {
 	private Long price;
 	
 	@NotEmpty(message="¡Please provide the description¡")
-	@Size(min=2, message="¡Recipes must be at least 2 instructions long¡")
-	private String recipe;
+	@Size(min=2, message="¡Description must be at least 2 instructions long¡")
+	private String description;
 	
 	@Column(updatable=false)
 	@DateTimeFormat(pattern="yyyy-MM-dd")
@@ -50,11 +50,11 @@ public class Cake {
 	public Cake() {}
 	
 	
-	public Cake(String name, Long price, String recipe) {
+	public Cake(String name, Long price, String description) {
 		super();
 		this.name = name;
 		this.price = price;
-		this.recipe = recipe;
+		this.description = description;
 	}
 	
 	public Long getId() {
@@ -87,13 +87,13 @@ public class Cake {
 	}
 
 
-	public String getRecipe() {
-		return recipe;
+	public String getDescription() {
+		return description;
 	}
 
 
-	public void setRecipe(String recipe) {
-		this.recipe = recipe;
+	public void setDescription(String description) {
+		this.description = description;
 	}
 	
 
