@@ -123,6 +123,14 @@ public class User {
 		this.updatedAt = updatedAt;
 	}
 	
+	@ManyToMany(fetch = FetchType.LAZY)
+   	 @JoinTable(
+       		 name = "likes", 
+        	 joinColumns = @JoinColumn(name = "user_id"), 
+		 inverseJoinColumns = @JoinColumn(name = "cake_id")
+   	 )
+    private List<User> user;
+	
 	
 
 	
