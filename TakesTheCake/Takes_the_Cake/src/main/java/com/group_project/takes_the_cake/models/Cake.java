@@ -8,8 +8,10 @@ import javax.persistence.FetchType;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
-import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
+import javax.persistence.JoinColumn;
+import javax.persistence.ManyToMany;
+import javax.persistence.JoinTable;
 import javax.persistence.PrePersist;
 import javax.persistence.PreUpdate;
 import javax.persistence.Table;
@@ -29,10 +31,6 @@ public class Cake {
 	@NotBlank(message="¡The name is Required¡")
 	private String name;
 	
-	@NotBlank(message="Now how much would this end up costing?")
-	@Size(min=5, message="¡Theres no way this costs only THIS much¡")
-	private Long price;
-	
 	@NotEmpty(message="¡Please provide the description¡")
 	@Size(min=2, message="¡Description must be at least 2 instructions long¡")
 	private String description;
@@ -50,10 +48,9 @@ public class Cake {
 	public Cake() {}
 	
 	
-	public Cake(String name, Long price, String description) {
+	public Cake(String name, String description) {
 		super();
 		this.name = name;
-		this.price = price;
 		this.description = description;
 	}
 	
@@ -74,16 +71,6 @@ public class Cake {
 
 	public void setName(String name) {
 		this.name = name;
-	}
-
-
-	public Long getPrice() {
-		return price;
-	}
-
-
-	public void setPrice(Long price) {
-		this.price = price;
 	}
 
 
@@ -115,6 +102,17 @@ public class Cake {
 	public void setUpdatedAt(Date updatedAt) {
 		this.updatedAt = updatedAt;
 	}
+	
+	//@OneToMany(fetch=FetchType.LAZY, mappedBy="cake", cascade=CascadeType.ALL) --one to many relationship if needed
+	
+	
+	@ManyToMany(fetch = FetchType.LAZY)
+    	@JoinTable(
+        name = "likes", 
+        joinColumns = @JoinColumn(name = "user_id"), 
+        inverseJoinColumns = @JoinColumn(name = "cake_id")
+    	)
+	private List<Cake> cake;
 
 
 	public User getUser() {
