@@ -14,9 +14,9 @@
 
 
 <div>
-	<h1>Welcome, <c:out value="${user.name}"/></h1>
-	<a href="/logout">Log-Out</a>
-	<a href="/create-cake">Make A Cake</a>
+	<h1>Welcome</h1>
+	<a href="/login-reg">Log-In</a>
+	<a href="/login-reg">Register</a>
 	
 	<h3>Takes the Cake</h3>
 	<table>
@@ -31,7 +31,7 @@
 		<c:forEach var="cake" items="${cakes}">
 			<tr>
 				<td>
-					<p><a href="/cakes/${cake.id}"><c:out value="${cake.name}"/></a></p>
+					<p><c:out value="${cake.name}"/></p>
 				</td>
 				<td>
 					<p><c:out value="${cake.user.name}"></c:out></p>

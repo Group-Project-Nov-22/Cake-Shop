@@ -1,6 +1,7 @@
 package com.group_project.takes_the_cake.models;
 
 import java.util.Date;
+import java.util.List;
 
 import javax.persistence.Column;
 import javax.persistence.Entity;
@@ -9,9 +10,8 @@ import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.ManyToOne;
+import javax.persistence.OneToMany;
 import javax.persistence.JoinColumn;
-import javax.persistence.ManyToMany;
-import javax.persistence.JoinTable;
 import javax.persistence.PrePersist;
 import javax.persistence.PreUpdate;
 import javax.persistence.Table;
@@ -21,8 +21,10 @@ import javax.validation.constraints.Size;
 
 import org.springframework.format.annotation.DateTimeFormat;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
+
 @Entity
-@Table(name="cake")
+@Table(name="cakes")
 public class Cake {
 	
 	@Id @GeneratedValue(strategy = GenerationType.IDENTITY)
@@ -41,9 +43,26 @@ public class Cake {
 	@DateTimeFormat(pattern="yyyy-MM-dd")
 	private Date updatedAt;
 	
+	
+	
+	
 	@ManyToOne(fetch=FetchType.LAZY)
 	@JoinColumn(name="user_id")
 	private User user;
+	
+//	@OneToMany(mappedBy="cakes",fetch=FetchType.LAZY)
+//	@JsonIgnore
+//	private List<Like> likes;
+	
+	
+//	@ManyToMany(fetch = FetchType.LAZY)
+//	@JoinTable(
+//    name = "likes", 
+//    joinColumns = @JoinColumn(name = "user_id"), 
+//    inverseJoinColumns = @JoinColumn(name = "cake_id")
+//	)
+//	private List<Cake> cake;
+	
 	
 	public Cake() {}
 	
@@ -103,16 +122,9 @@ public class Cake {
 		this.updatedAt = updatedAt;
 	}
 	
-	//@OneToMany(fetch=FetchType.LAZY, mappedBy="cake", cascade=CascadeType.ALL) --one to many relationship if needed
 	
 	
-	@ManyToMany(fetch = FetchType.LAZY)
-    	@JoinTable(
-        name = "likes", 
-        joinColumns = @JoinColumn(name = "user_id"), 
-        inverseJoinColumns = @JoinColumn(name = "cake_id")
-    	)
-	private List<Cake> cake;
+
 
 
 	public User getUser() {
