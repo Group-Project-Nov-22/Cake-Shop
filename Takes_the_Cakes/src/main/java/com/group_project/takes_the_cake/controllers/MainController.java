@@ -104,6 +104,16 @@ public class MainController {
 		return"redirect:/home";
 	}
 	
+	@PutMapping("/cakes/{id}")
+    	public String updateCake(@Valid @ModelAttribute("editCake") Cake cake, BindingResult result, Model model) {
+    	
+    		if (result.hasErrors()) {
+    			return "editCake.jsp";
+    		}
+        	cakes.update(cake);
+    		return "redirect:/home";
+   	}
+	
 	@GetMapping("/cakes/{id}")
 	public String showCake(Model model, @PathVariable("id")Long id, HttpSession session) {
 		Cake cake = cakes.findById(id);
