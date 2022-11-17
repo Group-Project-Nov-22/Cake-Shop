@@ -13,11 +13,11 @@ import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.PutMapping;
 
-import com.group_project.takes_the_cake.services.CakeService;
-import com.group_project.takes_the_cake.services.UserService;
 import com.group_project.takes_the_cake.models.Cake;
 import com.group_project.takes_the_cake.models.LoginUser;
 import com.group_project.takes_the_cake.models.User;
+import com.group_project.takes_the_cake.services.CakeService;
+import com.group_project.takes_the_cake.services.UserService;
 
 @Controller
 public class MainController {
@@ -97,7 +97,7 @@ public class MainController {
 	}
 	
 	@PostMapping("/make-a-cake")
-	public String createCake(@Valid @ModelAttribute("newCake")Cake cake, BindingResult result) {
+	public String createCake(@Valid @ModelAttribute("cake")Cake cake, BindingResult result) {
 		if(result.hasErrors()) {
 			return"makeAcake.jsp";
 		}
@@ -105,7 +105,20 @@ public class MainController {
 		return"redirect:/home";
 	}
 	
-	@PutMapping("/cakes/{id}")
+	@GetMapping("cakes/edit/{id}")
+	public String editCakeForm(@PathVariable("id")Long id, Model model, HttpSession session) {
+		if(session.getAttribute("userId") == null) {
+			return"redirect:home";
+		}	
+		Cake cake = cakes.findById(id);
+		model.addAttribute("cake", cake);
+//		User user = users.findById((Long)session.getAttribute("userId"));
+//		
+//		model.addAttribute("user", user);
+		return "editCake.jsp";
+	}
+	
+	@PutMapping("/cakes/edit/form/{id}")
     	public String updateCake(@Valid @ModelAttribute("editCake") Cake cake, BindingResult result, Model model) {
     	
     		if (result.hasErrors()) {
@@ -120,10 +133,10 @@ public class MainController {
 		Cake cake = cakes.findById(id);
 		model.addAttribute("cake", cake);
 		if(session.getAttribute("userId")==null) {
-			return"home.jsp";
+			return"aCake.jsp";
 		}
-		
 		model.addAttribute("user", users.findById((Long)session.getAttribute("userId")));
+		
 		
 		return"aCake.jsp";
 	}

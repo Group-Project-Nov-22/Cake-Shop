@@ -59,7 +59,6 @@ public class User {
 //	@OneToMany(mappedBy="user", fetch = FetchType.LAZY)
 //	@JsonIgnore
 //	private List<Like> likes;
-//	
 	
 	@OneToMany(mappedBy="user", fetch=FetchType.LAZY)
 	@JsonIgnore
@@ -67,13 +66,22 @@ public class User {
 	
 	@ManyToMany(fetch = FetchType.LAZY)
 	@JoinTable(
-    name = "likes",
-    joinColumns = @JoinColumn(name = "user_id"),
-    inverseJoinColumns = @JoinColumn(name = "cake_id")
-	)
+			 name = "likes", 
+			 joinColumns = @JoinColumn(name = "user_id"), 
+			 inverseJoinColumns = @JoinColumn(name = "cake_id")
+			 )
 	private List<Cake> likedCakes;
+
 	
 	
+	public List<Cake> getLikedCakes() {
+		return likedCakes;
+	}
+
+	public void setLikedCakes(List<Cake> likedCakes) {
+		this.likedCakes = likedCakes;
+	}
+
 	public User() {}
 	
 	public User(

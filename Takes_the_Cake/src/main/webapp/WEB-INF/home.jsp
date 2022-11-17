@@ -50,7 +50,7 @@
 							            <p><c:out value="${cake.user.name}"></c:out></p>
 							        </td>
 							        <td>
-							            <p><a href="/cakes/${cake.id}"><c:out value="${cake.name}"/></a></p>
+							            <p><a class="cake-link" href="/cakes/${cake.id}"><c:out value="${cake.name}"/></a></p>
 							        </td>
 							        <td>
 							            <p><c:out value="${cake.likes.size()}"></c:out></p>

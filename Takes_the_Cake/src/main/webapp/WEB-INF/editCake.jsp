@@ -17,29 +17,28 @@
 		<h1>Edit Cake</h1>
 	</div>
 	
-	<div class="form-container">
-		<form:form action="/edit-a-cake" modelAttribute="editCake" class="cake-form">
-			<input type="hidden" name="_method" value="put"/>
-			
-			<p>
-				<form:errors path="name" />
-				<form:label for="name" path="name">Name:</form:label>
-				<form:input type="text" path="name" />
-			</p>
-			<p>
-				<form:errors path="description" />
-				<form:label for="description" path="description">Description:</form:label>
-				<form:input type="text" path="description" class="cake-description" />
-			</p>
-			<p>
-				<form:errors path="user" />
-				<form:input type="hidden" path="user" value="${user.id}" />
-			</p>
-			
-			<input type="submit" value="Submit Edit" />
+		<form:form action="/cakes/edit/form/${id}" modelAttribute="newCake" class="cake-form">
+				<h3>
+					<form:errors path="name" />
+					<form:label for="name" path="name" class="name-label">Cake Name:</form:label>
+					
+					<form:input type="text" path="name" class="name-input" value=${cake.name }/>
+				</h3>
+				<h3 class="description">
+					<form:errors path="description" />
+					<form:label for="description" path="description" class="description-label">Description:</form:label>
+					
+					<form:textarea type="text-area" path="description" class="description-textarea" value=${cake.description }/>
+				</h3>
+				<p>
+					<form:errors path="user" />
+					<form:input type="hidden" path="user" value="${user.id}" />
+				</p>
+				<p>
+					<button class="make-cake-btn" type="submit" value="Make A Cake" ><strong>Add Cake</strong></button>
+				</p>
 		</form:form>
-		
-		<a href="/home">Cancel</a>
+			<a class="cancel-btn" href="/home"><strong>cancel</strong></a>
 		
 		
 	</div>

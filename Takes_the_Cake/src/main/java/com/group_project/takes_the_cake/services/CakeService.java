@@ -7,6 +7,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import com.group_project.takes_the_cake.models.Cake;
+import com.group_project.takes_the_cake.models.User;
 import com.group_project.takes_the_cake.repositories.CakeRepository;
 
 @Service

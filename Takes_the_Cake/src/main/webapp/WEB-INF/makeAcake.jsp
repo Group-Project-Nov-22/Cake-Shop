@@ -9,38 +9,36 @@
 <head>
 <meta charset="ISO-8859-1">
 <link rel="stylesheet" type="text/css" href="/css/makeACake.css">
-<title>Insert title here</title>
+<title>Make A Cake</title>
 </head>
 <body>
-
-	<div class="cake-form-container">
-		<div>
-			<h1>Cooking By The Book</h1>
-		</div>
-
-
+	<div class="container">
 		<div class="form-container">
+			<div class="title">
+				<h1>Add A Cake!</h1>
+			</div>
 			<form:form action="/make-a-cake" modelAttribute="newCake" class="cake-form">
-				<p>
+				<h3>
 					<form:errors path="name" />
-					<form:label for="name" path="name">Name:</form:label>
-					<form:input type="text" path="name" />
-				</p>
-				<p>
+					<form:label for="name" path="name" class="name-label">Cake Name:</form:label>
+					
+					<form:input type="text" path="name" class="name-input"/>
+				</h3>
+				<h3 class="description">
 					<form:errors path="description" />
-					<form:label for="description" path="description">Description:</form:label>
-					<form:input type="text" path="description" class="cake-description" />
-				</p>
+					<form:label for="description" path="description" class="description-label">Description:</form:label>
+					
+					<form:textarea type="text-area" path="description" class="description-textarea" />
+				</h3>
 				<p>
 					<form:errors path="user" />
 					<form:input type="hidden" path="user" value="${user.id}" />
 				</p>
 				<p>
-					<input type="submit" value="Make A Cake" />
+					<button class="make-cake-btn" type="submit" value="Make A Cake"><strong>Add Cake</strong></button>
 				</p>
 			</form:form>
-			<a href="/home">Cancel</a>
-
+			<a class="cancel-btn" href="/home"><strong>cancel</strong></a>
 		</div>
 	</div>
 </body>

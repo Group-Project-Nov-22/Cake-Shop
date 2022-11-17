@@ -24,6 +24,7 @@
 				</div>
 				<div class="nav-bar-right">
 					<a href="/create-cake"><strong>Make a Cake</strong></a>
+					<a href="/home"><strong>Home</strong></a>
 					<a href="/logout"><strong>Log-Out</strong></a>
 				</div>
 			</section>
@@ -35,6 +36,7 @@
     							<th><h2>Chef</h2></th>
     							<th><h2>Description</h2></th>
     							<th><h2>Likes</h2></th>
+    							<th><h2>Actions</h2></th>
 							</tr>
 						</thead>
 					</table>
@@ -42,7 +44,6 @@
 				<div class="table-content">
 					<table>
 						<tbody>
-							
 							    <tr>
 							    	<td>
 							            <p><c:out value="${cake.user.name}"></c:out></p>
@@ -51,18 +52,20 @@
 							            <p><c:out value="${cake.description}"></c:out></p>
 							        </td>
 							        <td>
-							            <p><a href="/cakes/${cake.id}"><c:out value="${cake.name}"/></a></p>
-							        </td>
-							        <td>
 							            <p><c:out value="${cake.likes.size()}"></c:out></p>
 							        </td>
 							        <td>
 							        	<form action="/cakes/${cake.id}/like" method=post>
 							        		<button>Like</button>
 							        	</form>
+							        	</td>
+							        	<td>
+								        	<form action="cakes/edit/${cake.id}" method=get>
+								        		<button>Edit</button>
+								        	</form>
+								        
 							        </td>
 							    </tr>
-							
 						</tbody>
 					</table>
 				</div>           

@@ -34,8 +34,8 @@
 			<table>
 				<thead>
 					<tr>
-						<th><h2>Cakes</h2></th>
 						<th><h2>Chef</h2></th>
+						<th><h2>Cakes</h2></th>
 						<th><h2>Likes</h2></th>
 					</tr>
 				</thead>
@@ -47,10 +47,10 @@
 					<c:forEach var="cake" items="${cakes}">
 						<tr>
 							<td>
-								<p><a href="/cakes/${cake.id}"><c:out value="${cake.name}"/></a></p>
+								<p><c:out value="${cake.user.name}"></c:out></p>
 							</td>
 							<td>
-								<p><c:out value="${cake.user.name}"></c:out></p>
+								<p><a href="/cakes/${cake.id}"><c:out value="${cake.name}"/></a></p>
 							</td>
 							<td>
 								<p><c:out value="${cake.likes.size()}"></c:out></p>
