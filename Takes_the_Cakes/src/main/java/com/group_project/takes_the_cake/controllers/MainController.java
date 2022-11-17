@@ -114,7 +114,7 @@ public class MainController {
 		
 		model.addAttribute("user", users.findById((Long)session.getAttribute("userId")));
 		
-		return"showRecipe.jsp";
+		return"aCake.jsp";
 	}
 	
 	
