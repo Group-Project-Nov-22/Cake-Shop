@@ -8,42 +8,60 @@
 <html>
 <head>
 <meta charset="ISO-8859-1">
-<title>CakeBoard</title>
+<link rel="stylesheet" type="text/css" href="/css/home.css">
+<title>Logged Out Home</title>
 </head>
 <body>
 
 
-<div>
-	<h1>Welcome</h1>
-	<a href="/login-reg">Log-In</a>
-	<a href="/login-reg">Register</a>
-	
-	<h3>Takes the Cake</h3>
-	<table>
+<div class="container">
+	<section class="header">
+		<h1 class="title">Takes the Cake</h1>
+		<p>Group Project: Nov '22</p>
+	</section>
+	<section class="nav-bar">
+		<div class="nav-bar-left">
+			<h3 class="welcome">Welcome</h3>
+		</div>
+		<div class="nav-bar-center"></div>
+		<div class="nav-bar-right">		
+			<a href="/login-reg"><strong>Log-In</strong></a>
+			<a href="/login-reg"><strong>Register</strong></a>
+		</div>
+	</section>
+	<section class="main">
+		<div class="table-header">
+			<table>
+				<thead>
+					<tr>
+						<th><h2>Cakes</h2></th>
+						<th><h2>Chef</h2></th>
+						<th><h2>Likes</h2></th>
+					</tr>
+				</thead>
+			</table>
+		</div>
+		<div class="table-content">
+			<table>
+				<tbody>
+					<c:forEach var="cake" items="${cakes}">
+						<tr>
+							<td>
+								<p><a href="/cakes/${cake.id}"><c:out value="${cake.name}"/></a></p>
+							</td>
+							<td>
+								<p><c:out value="${cake.user.name}"></c:out></p>
+							</td>
+							<td>
+								<p><c:out value="${cake.likes.size()}"></c:out></p>
+							</td>
+						</tr>
+					</c:forEach>
+				</tbody>
+			</table>
+		</div>
 		
-		<tr>
-			
-			<th>Cakes</th>
-			<th>Chef</th>
-			<th>Likes</th>
-			
-		</tr>
-		<c:forEach var="cake" items="${cakes}">
-			<tr>
-				<td>
-					<p><c:out value="${cake.name}"/></p>
-				</td>
-				<td>
-					<p><c:out value="${cake.user.name}"></c:out></p>
-				</td>
-				<td>
-					<p>***********PlaceHolder************</p>
-				</td>
-			</tr>
-		</c:forEach>
-		
-		
-	</table>
+	</section>
 	
 	
 </div>

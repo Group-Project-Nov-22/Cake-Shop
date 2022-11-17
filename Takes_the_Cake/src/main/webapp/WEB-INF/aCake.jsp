@@ -8,9 +8,10 @@
 <html>
 	<head>
 		<meta charset="ISO-8859-1">
-		<link rel="stylesheet" type="text/css" href="/css/home.css">
-		<title>Logged In Home</title>
+		<link rel="stylesheet" type="text/css" href="/css/aCake.css">
+		<title>A Cake</title>
 	</head>
+
 	<body>
 		<div class="container">
 			<section class="header">
@@ -19,10 +20,7 @@
 			</section>
 			<section class="nav-bar">
 				<div class="nav-bar-left">
-					<h3 class="welcome">Welcome, <c:out value="${user.name}"/></h3>
-				</div>
-				<div class="nav-bar-center">
-					
+					<h3 class="welcome">This cake is, <c:out value="${cake.name}"/>!</h3>
 				</div>
 				<div class="nav-bar-right">
 					<a href="/create-cake"><strong>Make a Cake</strong></a>
@@ -35,7 +33,7 @@
 						<thead>
 							<tr>
     							<th><h2>Chef</h2></th>
-    							<th><h2>Cakes</h2></th>
+    							<th><h2>Description</h2></th>
     							<th><h2>Likes</h2></th>
 							</tr>
 						</thead>
@@ -44,10 +42,13 @@
 				<div class="table-content">
 					<table>
 						<tbody>
-							<c:forEach var="cake" items="${cakes}">
+							
 							    <tr>
-							        <td>
+							    	<td>
 							            <p><c:out value="${cake.user.name}"></c:out></p>
+							        </td>
+							        <td>
+							            <p><c:out value="${cake.description}"></c:out></p>
 							        </td>
 							        <td>
 							            <p><a href="/cakes/${cake.id}"><c:out value="${cake.name}"/></a></p>
@@ -55,8 +56,13 @@
 							        <td>
 							            <p><c:out value="${cake.likes.size()}"></c:out></p>
 							        </td>
+							        <td>
+							        	<form action="/cakes/${cake.id}/like" method=post>
+							        		<button>Like</button>
+							        	</form>
+							        </td>
 							    </tr>
-							</c:forEach>
+							
 						</tbody>
 					</table>
 				</div>           

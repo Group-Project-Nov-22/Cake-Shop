@@ -11,6 +11,7 @@ import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.PutMapping;
 
 import com.group_project.takes_the_cake.services.CakeService;
 import com.group_project.takes_the_cake.services.UserService;
@@ -96,7 +97,7 @@ public class MainController {
 	}
 	
 	@PostMapping("/make-a-cake")
-	public String createCake(@Valid @ModelAttribute("cake")Cake cake, BindingResult result) {
+	public String createCake(@Valid @ModelAttribute("newCake")Cake cake, BindingResult result) {
 		if(result.hasErrors()) {
 			return"makeAcake.jsp";
 		}
@@ -104,17 +105,39 @@ public class MainController {
 		return"redirect:/home";
 	}
 	
+	@PutMapping("/cakes/{id}")
+    	public String updateCake(@Valid @ModelAttribute("editCake") Cake cake, BindingResult result, Model model) {
+    	
+    		if (result.hasErrors()) {
+    			return "editCake.jsp";
+    		}
+        	cakes.update(cake);
+    		return "redirect:/home";
+   	}
+	
 	@GetMapping("/cakes/{id}")
 	public String showCake(Model model, @PathVariable("id")Long id, HttpSession session) {
 		Cake cake = cakes.findById(id);
 		model.addAttribute("cake", cake);
 		if(session.getAttribute("userId")==null) {
-			return"newUserRecipe.jsp";
+			return"home.jsp";
 		}
 		
 		model.addAttribute("user", users.findById((Long)session.getAttribute("userId")));
 		
-		return"showRecipe.jsp";
+		return"aCake.jsp";
+	}
+	
+	@PostMapping("/cakes/{id}/like")
+	public String addLike(Model model, @PathVariable("id")Long id, HttpSession session) {
+		Cake cake = cakes.findById(id);
+		var E = cake.getLikes();
+		User user = users.findById((Long)session.getAttribute("userId"));
+		E.add(user);
+		cake.setLikes(E);
+		cakes.create(cake);
+		model.addAttribute("cake", cake);
+		return"aCake.jsp";
 	}
 	
 	
