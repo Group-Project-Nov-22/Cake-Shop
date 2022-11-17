@@ -9,7 +9,7 @@
 <head>
 <meta charset="ISO-8859-1">
 <link rel="stylesheet" type="text/css" href="/css/home.css">
-<title>CakeBoard</title>
+<title>Logged Out Home</title>
 </head>
 <body>
 

@@ -9,7 +9,7 @@
 	<head>
 		<meta charset="ISO-8859-1">
 		<link rel="stylesheet" type="text/css" href="/css/home.css">
-		<title>CakeBoard</title>
+		<title>Logged In Home</title>
 	</head>
 	<body>
 		<div class="container">
@@ -47,10 +47,10 @@
 							<c:forEach var="cake" items="${cakes}">
 							    <tr>
 							        <td>
-							            <p><a href="/cakes/${cake.id}"><c:out value="${cake.name}"/></a></p>
+							            <p><c:out value="${cake.user.name}"></c:out></p>
 							        </td>
 							        <td>
-							            <p><c:out value="${cake.user.name}"></c:out></p>
+							            <p><a href="/cakes/${cake.id}"><c:out value="${cake.name}"/></a></p>
 							        </td>
 							        <td>
 							            <p>***********PlaceHolder************</p>

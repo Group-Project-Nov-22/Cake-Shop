@@ -53,21 +53,14 @@ public class User {
 	private Date updatedAt;
 	
 	
-//	@OneToMany(mappedBy="user", fetch = FetchType.LAZY)
-//	@JsonIgnore
-//	private List<Like> likes;
+	@OneToMany(mappedBy="user", fetch = FetchType.LAZY)
+	@JsonIgnore
+	private List<Like> likes;
+	
 	
 	@OneToMany(mappedBy="user", fetch=FetchType.LAZY)
 	@JsonIgnore
 	private List<Cake> cakes;
-	
-//	@ManyToMany(fetch = FetchType.LAZY)
-//	@JoinTable(
-//			 name = "likes", 
-//			 joinColumns = @JoinColumn(name = "user_id"), 
-//			 inverseJoinColumns = @JoinColumn(name = "cake_id")
-//			 )
-//	private List<User> user;
 
 	
 	

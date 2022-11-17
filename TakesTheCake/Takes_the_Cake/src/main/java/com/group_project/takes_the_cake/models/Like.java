@@ -10,7 +10,6 @@ import javax.persistence.ManyToOne;
 import javax.persistence.Table;
 
 @Entity
-@Table(name="users_cakes_likes")
 public class Like {
 	
 	@Id
@@ -18,14 +17,13 @@ public class Like {
 	private Long id;
 	
 	
+	@ManyToOne(fetch = FetchType.LAZY)
+	@JoinColumn(name="user_id")
+	private User user;
 	
-//	@ManyToOne(fetch = FetchType.LAZY)
-//	@JoinColumn(name="user_id")
-//	private User user;
-//	
-//	@ManyToOne(fetch = FetchType.LAZY)
-//	@JoinColumn(name="cake_id")
-//	private Cake cake;
+	@ManyToOne(fetch = FetchType.LAZY)
+	@JoinColumn(name="cake_id")
+	private Cake cake;
 	
 	public Like() {
 		
@@ -39,21 +37,21 @@ public class Like {
 		this.id = id;
 	}
 
-//	public User getUser() {
-//		return user;
-//	}
-//
-//	public void setUser(User user) {
-//		this.user = user;
-//	}
-//
-//	public Cake getCake() {
-//		return cake;
-//	}
-//
-//	public void setCake(Cake cake) {
-//		this.cake = cake;
-//	}
+	public User getUser() {
+		return user;
+	}
+
+	public void setUser(User user) {
+		this.user = user;
+	}
+
+	public Cake getCake() {
+		return cake;
+	}
+
+	public void setCake(Cake cake) {
+		this.cake = cake;
+	}
 	
 	
 
