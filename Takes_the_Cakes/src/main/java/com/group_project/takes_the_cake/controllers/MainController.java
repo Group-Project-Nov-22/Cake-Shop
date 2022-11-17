@@ -119,7 +119,7 @@ public class MainController {
 		Cake cake = cakes.findById(id);
 		model.addAttribute("cake", cake);
 		if(session.getAttribute("userId")==null) {
-			return"newUserRecipe.jsp";
+			return"home.jsp";
 		}
 		
 		model.addAttribute("user", users.findById((Long)session.getAttribute("userId")));
