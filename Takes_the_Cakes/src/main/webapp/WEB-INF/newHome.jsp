@@ -53,7 +53,7 @@
 								<p><c:out value="${cake.user.name}"></c:out></p>
 							</td>
 							<td>
-								<p>***********PlaceHolder************</p>
+								<p><c:out value="${cake.likes.size()}"></c:out></p>
 							</td>
 						</tr>
 					</c:forEach>

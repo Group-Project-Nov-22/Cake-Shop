@@ -53,7 +53,7 @@
 							            <p><a href="/cakes/${cake.id}"><c:out value="${cake.name}"/></a></p>
 							        </td>
 							        <td>
-							            <p>***********PlaceHolder************</p>
+							            <p><c:out value="${cake.likes.size()}"></c:out></p>
 							        </td>
 							    </tr>
 							</c:forEach>

@@ -9,13 +9,13 @@
 <head>
 <meta charset="ISO-8859-1">
 <link rel="stylesheet" type="text/css" href="/css/makeACake.css">
-<title>Make A Cake</title>
+<title>Insert title here</title>
 </head>
 <body>
 
 	<div class="cake-form-container">
 		<div>
-			<h1>Add your Cake!</h1>
+			<h1>Cooking By The Book</h1>
 		</div>
 
 
@@ -23,7 +23,7 @@
 			<form:form action="/make-a-cake" modelAttribute="newCake" class="cake-form">
 				<p>
 					<form:errors path="name" />
-					<form:label for="name" path="name">Cake Title:</form:label>
+					<form:label for="name" path="name">Name:</form:label>
 					<form:input type="text" path="name" />
 				</p>
 				<p>

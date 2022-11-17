@@ -9,6 +9,9 @@ import javax.persistence.FetchType;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.JoinColumn;
+import javax.persistence.JoinTable;
+import javax.persistence.ManyToMany;
 import javax.persistence.OneToMany;
 import javax.persistence.PrePersist;
 import javax.persistence.PreUpdate;
@@ -56,19 +59,19 @@ public class User {
 //	@OneToMany(mappedBy="user", fetch = FetchType.LAZY)
 //	@JsonIgnore
 //	private List<Like> likes;
+//	
 	
 	@OneToMany(mappedBy="user", fetch=FetchType.LAZY)
 	@JsonIgnore
 	private List<Cake> cakes;
 	
-//	@ManyToMany(fetch = FetchType.LAZY)
-//	@JoinTable(
-//			 name = "likes", 
-//			 joinColumns = @JoinColumn(name = "user_id"), 
-//			 inverseJoinColumns = @JoinColumn(name = "cake_id")
-//			 )
-//	private List<User> user;
-
+	@ManyToMany(fetch = FetchType.LAZY)
+	@JoinTable(
+    name = "likes",
+    joinColumns = @JoinColumn(name = "user_id"),
+    inverseJoinColumns = @JoinColumn(name = "cake_id")
+	)
+	private List<Cake> likedCakes;
 	
 	
 	public User() {}
