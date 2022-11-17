@@ -13,9 +13,13 @@
 </head>
 <body>
 
-
+<div class=container>
+<section class="header">
+<h1>Takes The Cake</h1>
+<p>Group Project: Nov '22</p>
+</section>
+<section class="main">
 <div class="login-reg-container">
-	<h1>Takes The Cake</h1>
 	<div class="reg-form-container">
 		<h2>Register</h2>
 		<form:form action="/register" modelAttribute="newUser" class="reg-form">
@@ -65,6 +69,8 @@
 			</p>
 		</form:form>
 	</div>
+</div>
+</section>
 </div>
 
 
