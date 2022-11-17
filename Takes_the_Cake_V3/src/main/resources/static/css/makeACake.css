@@ -1,6 +1,6 @@
 		body {
 			background:rgb(55, 150, 255);
-			font-family: Copperplate,Copperplate Gothic Light,fantasy; ;
+			font-family: Copperplate,Copperplate Gothic Light,fantasy;
 			display: flex;
 			justify-content: center;
 		}
@@ -9,7 +9,7 @@
 			display: flex;
 			flex-direction:column;
   			margin: auto;
-			margin-top: 60px;
+			margin-top:150px;
   			height: 400px;
   			width: 500px;
   			background:rgb(233, 255, 255) ;
@@ -36,33 +36,39 @@
 			width:500px;
 			border-radius: 25px 25px 0px 0px;
 			box-shadow: 2px 2px black;
+			margin-bottom:50px
+		}
+
+		.description {
+			display:flex
+		}
+
+		.description-textarea {
+			width: 20rem;
+			height: 30px;
+			text-align:top;
+			background:rgb(233, 255, 255)
+			
 		}
 		
-
-		.cake-form p input {
-			
-			background-color: #F0F0F0;
-			padding: 10px 5px 10px 5px;
-			border-radius: 5px;
-			border: 1px solid #ccc;
+		textarea {
+			outline: none;
+    		border: none;
+    		border-bottom: 2px solid black;
+    		background:rgb(233, 255, 255);
+    		font-family: Andale Mono, monospace;
+    		
+		}
+		
+		input {
+			outline: none;
+    		border: none;
+    		border-bottom: 2px solid black;
+    		background:rgb(233, 255, 255);
+    		font-family: Andale Mono, monospace;
 		}
 
-		.cake-form p label {
-			padding: 15px 10px 5px 10px;
-			border-radius: 50px 50px 15px 15px;
-			background-color: peru;
-		}
-
-		.description-input {
-			width: 20rem;
-			height: 200px;
-			text-align:top
-		}
-
-		.cake-form p input submit {
-			padding: 50px;
-		}
-
+		
 		.form-container a {
 			color: black;
 			font-size: 15px;
@@ -71,4 +77,34 @@
 			padding: 8px;
 			background-color: #efefef;
 
+		}
+		
+		.make-cake-btn {
+			height: 40px;
+    		width: 200px;
+    		display: block;
+    		border-style: solid;
+    		border-color: black;
+    		box-shadow: 2px 2px black;
+    		font-size: 20px;
+    		font-family: Copperplate,Copperplate Gothic Light,fantasy;
+    		font-weight: 500;
+    		background-color: rgb(55, 150, 255);
+    		text-align: center;
+    		margin: auto;
+		}
+		
+		.cancel-btn {
+			height: 20px;
+    		width: 100px;
+    		display: block;
+    		border-style: solid;
+    		border-color: black;
+    		box-shadow: 2px 2px black;
+    		font-size: 20px;
+    		font-family: Copperplate,Copperplate Gothic Light,fantasy;
+    		font-weight: 500;
+    		background: rgb(55, 150, 255);
+    		text-align: center;
+    		margin: auto;
 		}
